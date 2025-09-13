@@ -20,7 +20,7 @@ reg [3:0] counter_up;
 /* up counter*/
     always @(posedge clk or negedge rst_n)
 begin
-if(~reset)
+    if(~rst_n)
  counter_up <= 4'd0;
 else
  counter_up <= counter_up + 4'd1;
