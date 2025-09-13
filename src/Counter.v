@@ -5,7 +5,7 @@
 
 `default_nettype none
 
-module Counter(input clk, reset, output[3:0] count);
+module tt_um_counter(input clk, reset, output[3:0] count);
 reg [3:0] counter_up;
 
 // up counter
