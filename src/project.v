@@ -14,7 +14,7 @@ module tt_um_counter(
     input  wire       ena,      // always 1 when the design is powered, so you can ignore it
     input  wire       clk,      // clock
     input  wire       reset     // reset
-                    )
+);
 reg [3:0] counter_up;
 
 // up counter
