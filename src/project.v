@@ -30,5 +30,5 @@ end
 assign uo_out = counter_up;
 assign uio_out = 0;
 assign uio_oe  = 0;
-    wire _unused = &{ena, rest_n, 1'b0};
+    wire _unused = &{ena, rst_n, 1'b0};
 endmodule
