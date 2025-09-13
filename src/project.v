@@ -13,15 +13,14 @@ module tt_um_counter(
     output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
     input  wire       ena,      // always 1 when the design is powered, so you can ignore it
     input  wire       clk,      // clock
-    input  wire       reset,     // reset
     input  wire       rst_n,     // reset_n - low to reset
 );
 reg [3:0] counter_up;
 
 /* up counter*/
-always @(posedge clk or posedge reset)
+    always @(posedge clk or negedge rst_n)
 begin
-if(reset)
+if(~reset)
  counter_up <= 4'd0;
 else
  counter_up <= counter_up + 4'd1;
@@ -30,5 +29,5 @@ end
 assign uo_out = counter_up;
 assign uio_out = 0;
 assign uio_oe  = 0;
-    wire _unused = &{ena, rst_n, 1'b0};
+    wire _unused = &{ena, 1'b0};
 endmodule
