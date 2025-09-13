@@ -5,7 +5,7 @@
 
 `default_nettype none
 
-module tt_um_counter(;
+module tt_um_counter(
     input  wire [3:0] ui_in,    // Dedicated inputs
     output wire [3:0] uo_out,   // Dedicated outputs
     input  wire [3:0] uio_in,   // IOs: Input path
