@@ -6,7 +6,11 @@
 `default_nettype none
 
 module tt_um_counter(;
-    output wire [3:0] count,   // Dedicated outputs
+    input  wire [3:0] ui_in,    // Dedicated inputs
+    output wire [3:0] uo_out,   // Dedicated outputs
+    input  wire [3:0] uio_in,   // IOs: Input path
+    output wire [3:0] uio_out,  // IOs: Output path
+    output wire [3:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
     input  wire       ena,      // always 1 when the design is powered, so you can ignore it
     input  wire       clk,      // clock
     input  wire       reset     // reset
@@ -22,6 +26,8 @@ else
  counter_up <= counter_up + 4'd1;
 end 
 
-assign count = counter_up;
+assign uo_out = counter_up;
+assign uio_out = 0;
+assign uio_oe  = 0;
    wire _unused = &{ena, 1'b0};
 endmodule
