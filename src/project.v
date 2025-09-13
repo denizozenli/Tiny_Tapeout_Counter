@@ -14,6 +14,7 @@ module tt_um_counter(
     input  wire       ena,      // always 1 when the design is powered, so you can ignore it
     input  wire       clk,      // clock
     input  wire       reset     // reset
+    input  wire       rst_n     // reset_n - low to reset
 );
 reg [3:0] counter_up;
 
@@ -29,5 +30,5 @@ end
 assign uo_out = counter_up;
 assign uio_out = 0;
 assign uio_oe  = 0;
-   wire _unused = &{ena, 1'b0};
+    wire _unused = &{ena, rest_n, 1'b0};
 endmodule
