@@ -5,7 +5,12 @@
 
 `default_nettype none
 
-module tt_um_counter(input clk, reset, output[3:0] count);
+module tt_um_counter(;
+    output wire [3:0] count,   // Dedicated outputs
+    input  wire       ena,      // always 1 when the design is powered, so you can ignore it
+    input  wire       clk,      // clock
+    input  wire       reset     // reset
+                    )
 reg [3:0] counter_up;
 
 // up counter
@@ -18,4 +23,5 @@ else
 end 
 
 assign count = counter_up;
+   wire _unused = &{ena, 1'b0};
 endmodule
